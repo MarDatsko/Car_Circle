@@ -1,12 +1,17 @@
 package com.homework_3.circle;
 
+import com.homework_3.counter.CountObject;
+
 public class Circle {
     private Double radius;
+    CountObject countObject = new CountObject();
 
     public Circle() {
+        countObject.countQuantityObject();
     }
 
     public Circle(Double radius) {
+        countObject.countQuantityObject();
         this.radius = radius;
     }
 

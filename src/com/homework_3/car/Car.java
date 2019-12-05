@@ -1,19 +1,26 @@
 package com.homework_3.car;
 
+import com.homework_3.counter.CountObject;
 import java.util.Scanner;
 
 public class Car {
-    public Boolean isCarWork = false;
-    public Integer speedCar = 0;
-    public final Integer MIN_SPEED = 0;
-    public final Integer MAX_SPEED = 80;
-    public Integer chooseUser;
+    private Boolean isCarWork = false;
+    private Boolean isProgramWork = true;
+    private Integer speedCar = 0;
+    private final Integer MIN_SPEED = 0;
+    private final Integer MAX_SPEED = 80;
+    private Integer chooseUser;
 
     Scanner user = new Scanner(System.in);
+    CountObject countObject = new CountObject();
+
+    public Car() {
+        countObject.countQuantityObject();
+    }
 
     public void runProgram() throws InterruptedException {
         showMenu();
-        while (true) {
+        while (isProgramWork) {
             chooseUser = user.nextInt();
             if (chooseUser == 1) {
                 startEngine();
@@ -25,6 +32,10 @@ public class Car {
                 reduceSpeed();
             } else if (chooseUser == 5) {
                 stopEngine();
+            } else if (chooseUser == 6) {
+                isProgramWork = false;
+            } else {
+                System.out.println("You choose wrong number, try again");
             }
         }
     }
@@ -35,8 +46,8 @@ public class Car {
                 + "2. Accelerate car" + '\n'
                 + "3. Cruise control" + '\n'
                 + "4. Reduce speed" + '\n'
-                + "5. Stop engine" + '\n');
-
+                + "5. Stop engine" + '\n'
+                + "6. Exit" + '\n');
     }
 
     private void startEngine() {
