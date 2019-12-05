@@ -4,6 +4,7 @@ public class CountObject {
     private static Integer count = 0;
 
     public CountObject() {
+        count++;
     }
 
     public void countQuantityObject() {

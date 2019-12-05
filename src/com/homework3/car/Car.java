@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class Car {
     private Boolean isCarWork = false;
     private Boolean isProgramWork = true;
-    private Integer speedCar = 0;
+    private Integer carSpeed = 0;
     private final Integer MIN_SPEED = 0;
     private final Integer MAX_SPEED = 80;
-    private Integer chooseUser;
+    private Integer pickedOption;
 
     Scanner user = new Scanner(System.in);
     CountObject countObject = new CountObject();
@@ -21,18 +21,18 @@ public class Car {
     public void runProgram() throws InterruptedException {
         showMenu();
         while (isProgramWork) {
-            chooseUser = user.nextInt();
-            if (chooseUser == 1) {
+            pickedOption = user.nextInt();
+            if (pickedOption == 1) {
                 startEngine();
-            } else if (chooseUser == 2) {
+            } else if (pickedOption == 2) {
                 accelerateCar();
-            } else if (chooseUser == 3) {
+            } else if (pickedOption == 3) {
                 keepSpeed();
-            } else if (chooseUser == 4) {
+            } else if (pickedOption == 4) {
                 reduceSpeed();
-            } else if (chooseUser == 5) {
+            } else if (pickedOption == 5) {
                 stopEngine();
-            } else if (chooseUser == 6) {
+            } else if (pickedOption == 6) {
                 isProgramWork = false;
             } else {
                 System.out.println("You choose wrong number, try again");
@@ -53,7 +53,7 @@ public class Car {
     private void startEngine() {
         if (!isCarWork) {
             isCarWork = true;
-            System.out.println("Engine start: drun drun drun drun drun drun drun" + "   Speed : " + "> " + speedCar + " km/h <");
+            System.out.println("Engine start: drun drun drun drun drun drun drun" + "   Speed : " + "> " + carSpeed + " km/h <");
         } else {
             System.out.println("Engine is work now");
         }
@@ -61,14 +61,14 @@ public class Car {
 
     private void accelerateCar() throws InterruptedException {
         if (isCarWork) {
-            while (speedCar < MAX_SPEED) {
+            while (carSpeed < MAX_SPEED) {
                 Thread.sleep(500);
-                speedCar += 10;
-                if (speedCar < MAX_SPEED) {
-                    System.out.println("Speed:  " + "> " + speedCar + " km/h <");
+                carSpeed += 10;
+                if (carSpeed < MAX_SPEED) {
+                    System.out.println("Speed:  " + "> " + carSpeed + " km/h <");
                 } else {
                     System.out.println("Max speed:  " + "> " + MAX_SPEED + " km/h <");
-                    speedCar = MAX_SPEED;
+                    carSpeed = MAX_SPEED;
                 }
             }
         } else {
@@ -79,8 +79,8 @@ public class Car {
     private void keepSpeed() {
         if (isCarWork) {
             System.out.print("Enter speed what do you want :");
-            speedCar = user.nextInt();
-            System.out.println("Cruise control  :  " + "> " + speedCar + " km/h <");
+            carSpeed = user.nextInt();
+            System.out.println("Cruise control  :  " + "> " + carSpeed + " km/h <");
         } else {
             System.out.println("Start engine");
         }
@@ -88,14 +88,14 @@ public class Car {
 
     private void reduceSpeed() throws InterruptedException {
         if (isCarWork) {
-            while (speedCar > MIN_SPEED) {
+            while (carSpeed > MIN_SPEED) {
                 Thread.sleep(500);
-                speedCar -= 10;
-                if (speedCar > MIN_SPEED) {
-                    System.out.println("Speed:  " + "> " + speedCar + " km/h <");
+                carSpeed -= 10;
+                if (carSpeed > MIN_SPEED) {
+                    System.out.println("Speed:  " + "> " + carSpeed + " km/h <");
                 } else {
                     System.out.println("Stop:  " + "> " + MIN_SPEED + " km/h <");
-                    speedCar = MIN_SPEED;
+                    carSpeed = MIN_SPEED;
                     System.out.println("You can stop engine");
                 }
             }
@@ -105,7 +105,7 @@ public class Car {
     }
 
     private void stopEngine() {
-        if (speedCar == 0) {
+        if (carSpeed == 0) {
             isCarWork = false;
             System.out.println("Engine isn't work");
         }
