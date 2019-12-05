@@ -1,8 +1,8 @@
-package com.homework_3;
+package com.homework3;
 
-import com.homework_3.car.Car;
-import com.homework_3.circle.Circle;
-import com.homework_3.counter.CountObject;
+import com.homework3.car.Car;
+import com.homework3.circle.Circle;
+import com.homework3.counter.CountObject;
 import java.text.DecimalFormat;
 
 public class Main {

@@ -1,6 +1,6 @@
-package com.homework_3.car;
+package com.homework3.car;
 
-import com.homework_3.counter.CountObject;
+import com.homework3.counter.CountObject;
 import java.util.Scanner;
 
 public class Car {

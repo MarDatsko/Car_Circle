@@ -1,4 +1,4 @@
-package com.homework_3.counter;
+package com.homework3.counter;
 
 public class CountObject {
     private static Integer count = 0;

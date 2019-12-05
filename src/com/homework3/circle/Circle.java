@@ -1,6 +1,6 @@
-package com.homework_3.circle;
+package com.homework3.circle;
 
-import com.homework_3.counter.CountObject;
+import com.homework3.counter.CountObject;
 
 public class Circle {
     private Double radius;
